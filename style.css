@@ -34,7 +34,7 @@ body{
 div.correction{
     position: relative;
     display: inline-flex;
-    transition: 0.4s;
+    transition: 0.4;
 }
 div.correction:after{
     position: absolute;
@@ -64,17 +64,17 @@ div.correction.suggestion:before {
     background-color: #FF9B4D;
 }
 div.correction.quick:before{
-    background-color: #FF9B4D;
+    background-color: #00C67C;
 }
 
 div.correction.major:after{
     background-color: #FF4D4D;
 }
 div.correction.suggestion:after {
-    background-color: #00C67C;
+    background-color: #FF9B4D;
 }
 div.correction.quick:after{
-    background-color: #FF9B4D;
+    background-color: #00C67C;
 }
 div.correction:hover:after{
     opacity: 0.3;
@@ -91,7 +91,7 @@ div.correction:hover:after{
     justify-content: center;
     right: 10px;
     bottom: 10px;
-    transition: 0.2s;
+    /* transition: 0.2s; */
     cursor: pointer;
     border: 1px solid #0AAAFF;
     padding: 0px 5px;
@@ -110,15 +110,25 @@ div.correction:hover:after{
 .logo.corrected svg path{
     fill: #00C67C;
 }
-.logo > div {
+.logo .powered {
+    width: 0;
+    overflow: hidden;
+    /* transition: 0.2s; */
+
+}
+.logo:hover .powered{
+    width: 60px;
+    padding-right: 7px;
+}
+/* .logo .wwrer div {
     width: 0;
     flex-direction: column;
     margin-right: 5px;
     display: none;
     overflow: hidden;
     transition: 0.4s;
-}
-.logo span{
+} */
+/* .logo span{
     color: #5A5D64;
     font-size: 9px;
     line-height: 9px;
@@ -130,32 +140,37 @@ div.correction:hover:after{
     line-height: 10px;
     font-weight: 500;
     bottom: 8px;
-}
-.logo svg{
+} */
+.logo .l{
     width: 10px;
     height: 17px;
 }
+/* .logo svg{
+    width: 10px;
+    height: 17px;
+} */
 .logo:hover{
     width: auto;
     height: 30px;
     padding-left: 12px;
 }
-.logo:hover svg{
+.logo:hover .l{
     width: 14px;
     height: 24px;
 }
-.logo:hover > div{
+/* .logo:hover > div{
     display: flex;
     width: 55px;
     margin-bottom: 2px;
-}
+} */
 
 /* marks */
 div.correction .marks{
     display: none;
     position: absolute;
     /* border: 1px solid; */
-    bottom: 18px;
+    bottom: 20px;
+    left: -9px;
 }
 div.correction:hover .marks{
     display: inline-flex;
@@ -167,11 +182,13 @@ div.correction .marks .sup-line{
     display: none;
     position: absolute;
     bottom: 24px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+    left: 0;
 }
 div.correction .marks .item{
     background: #FFFFFF;
-    border: 0.5px solid #799BFF;
+    color: #0AAAFF;
+    border: 0.5px solid #0AAAFF;
     box-sizing: border-box;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
     border-radius: 2px;
@@ -198,7 +215,7 @@ div.correction .marks .item:first-child:before{
     left: 10px;
     width: 4px; 
     height: 4px; 
-    border: 0.5px solid #799BFF;
+    border: 0.5px solid #0AAAFF;
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
@@ -216,7 +233,12 @@ div.correction .marks .item.more{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 24px;
+    padding: 2px;
     padding-bottom: 10px;
+    color: #5A5D64;
+    border-color: #AFB3BD;
+    position: inherit;
 }
 div.correction .marks .item.more:hover{
     background-color: #AFB3BD;
@@ -235,13 +257,21 @@ div.correction .marks .item.trash{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2px;
+    min-width: 24px;
+    color: white;
+    font-weight: 300;
+    border-color: #AFB3BD!important;
+}
+div.correction .marks .item.trash{
+    transition: 0.2s;
 }
 div.correction .marks .item.trash span{
     display: inline-block;
     /* display: none; */
     width: 0;
     overflow: hidden;
-    transition: 0.3s;
+    transition: 0s;
     padding-left: 0;
     font-size: 12px;
     line-height: 20px;
@@ -252,6 +282,8 @@ div.correction .marks .item.trash .hover{
 div.correction .marks .item.trash:hover{
     background-color: #FF4D4D!important;
     border: 0.5px solid #FF4D4D!important;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 div.correction .marks .item.trash:hover span{
     /* display: inline-block; */
@@ -267,12 +299,12 @@ div.correction .marks .item.trash:hover .default{
 /*  */
 div.correction .marks .item:hover{
     color: #FFFFFF;
-    background: #0AA6F9;
-    border: 0.5px solid #799BFF;
+    background: #0AAAFF;
+    border: 0.5px solid #0AAAFF;
 }
 div.correction .marks .item:first-child:hover:before{
-    background: #0AA6F9;
-    border-color: #799BFF;
+    background: #0AAAFF;
+    border-color: #0AAAFF;
 }
 
 /*  */
@@ -304,8 +336,12 @@ div.correction.quick .marks .item:hover:before{
     border-color: #00C67C;
     background-color: #00C67C;
 }
-
-
+div.correction.suggestion .marks .item:first-child:before{
+    border-color: #FF9B4D;
+}
+div.correction .marks .item:first-child:before{
+    border-color: #0AAAFF;
+}
 
 
 
